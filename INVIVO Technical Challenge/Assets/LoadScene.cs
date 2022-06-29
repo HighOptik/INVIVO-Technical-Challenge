@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    void Start() 
-    {
-        
-    }
     public void LoadLevel(int sceneID)
     {
-        TransitionManager.instance.FadeToBlack(sceneID);
+
+        Debug.Log("LOAD SCENE" + sceneID);
+        if (TransitionManager.instance)
+        {
+            TransitionManager.instance.FadeToBlack(sceneID);
+        }
+        else
+        {
+
+            SceneManager.LoadScene(sceneID);
+        }    
     }
 }

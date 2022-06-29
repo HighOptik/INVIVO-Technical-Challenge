@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class PrevScene : MonoBehaviour
 {
     // Start is called before the first frame update
-public void LoadPrevScene()
+    public void LoadPrevScene()
     {
-        TransitionManager.instance.FadeToBlack(SceneManager.GetActiveScene().buildIndex - 1);
+        if (TransitionManager.instance)
+        {
+            TransitionManager.instance.FadeToBlack(SceneManager.GetActiveScene().buildIndex - 1);
+        }else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+        }
     }
 }

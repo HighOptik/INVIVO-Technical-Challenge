@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InterationManager : MonoBehaviour
 {
@@ -18,20 +19,28 @@ public class InterationManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-        void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     public void NewObjectSelected(GameObject newSelection)
     {
-        if (currentlySelected != null)
+        if (NameLabel.instance)
         {
-            currentlySelected.GetComponent<Interactable>().Deselected();
+            NameLabel.instance.UpdateName(newSelection.name);
         }
 
+        if (currentlySelected != null)
+        {
+            if (currentlySelected != newSelection)
+            {
+                currentlySelected.GetComponent<Interactable>().Deselected();
+                currentlySelected = newSelection;
+            }
+            else
+                return;
+        }
+        else
+        {
             currentlySelected = newSelection;
-         //   currentlySelected.GetComponent<Interactable>().Selected();
+        }
     }
 }
