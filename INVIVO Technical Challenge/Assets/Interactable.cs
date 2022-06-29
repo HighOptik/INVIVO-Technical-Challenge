@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     public CanvasGroup label;
     public Color highlighted;
     Color original;
+    public bool launch;
     private void OnMouseDown()
     {
         Selected();
@@ -22,9 +23,16 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     public void Selected()
     {
+        if (!launch)
+        {
         label.alpha = 1;
         GetComponent<MeshRenderer>().material.color = highlighted;
         InterationManager.instance.NewObjectSelected(gameObject);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
     }
     public void Deselected()
     {
