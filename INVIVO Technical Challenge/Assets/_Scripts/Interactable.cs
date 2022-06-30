@@ -15,7 +15,8 @@ public class Interactable : MonoBehaviour
     private void OnMouseDown()
     {
         Selected();
-        TransitionManager.instance.Interaction("Clicked " + gameObject.name);
+        if (TransitionManager.instance)
+        { TransitionManager.instance.Interaction("Clicked " + gameObject.name); }
         if (EventSystem.current.IsPointerOverGameObject()) return;
     }
     void Start()
