@@ -11,7 +11,7 @@ public class LoadScene : MonoBehaviour
         Debug.Log("LOAD SCENE" + sceneID);
         if (TransitionManager.instance)
         {
-            TransitionManager.instance.FadeToBlack(sceneID);
+            TransitionManager.instance.RandomTransition(sceneID);
         }
         else
         {
