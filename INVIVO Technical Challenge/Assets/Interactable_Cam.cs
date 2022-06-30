@@ -8,7 +8,6 @@ public class Interactable_Cam : MonoBehaviour
     public Transform camPos;
     private void OnMouseDown()
     {
-        Debug.Log("saasda");
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        CamFocusControl.instance.NewFocusPos(camPos);
     }
 }

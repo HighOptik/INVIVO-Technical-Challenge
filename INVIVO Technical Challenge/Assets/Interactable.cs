@@ -77,17 +77,6 @@ public class Interactable : MonoBehaviour
             }
         }
     }
-
-/*    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.GetComponent<Interactable>())
-        {
-            Interactable other = collision.gameObject.GetComponent<Interactable>();
-            if(other.launch)
-            {
-            }
-        }
-    }*/
     public IEnumerator Launch(Vector3 hitPoint)
     {
         Vector3 direction = (transform.position - hitPoint);
